@@ -20,6 +20,8 @@ order_type/is_hot 正序/倒序/热门
 
 post_id 爬取的帖子编号
 
+gids 对应的游戏社区
+
 ## 若打开mihoyo_comment.csv为乱码 
 
 可新建一个csv 
