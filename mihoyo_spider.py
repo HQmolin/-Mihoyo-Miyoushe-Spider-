@@ -6,9 +6,7 @@ Created on Tue Aug 20 14:41:08 2024
 """
 
 import requests
-from lxml import etree
 
-import time
 import re
 import csv
 
