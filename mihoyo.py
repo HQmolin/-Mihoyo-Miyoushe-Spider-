@@ -26,9 +26,13 @@ headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 #这里是防删楼的编号 可以和起始楼保持一致
 #起始楼可以进行自定义(该处示例为1469000)
 #爬取楼层数可自定义 但是由于删楼爬取数必然小于指定数目
-n = 1000
-first_floor = 1469000
+n = 100
+first_floor = 1
 floor = first_floor - 1
+
+#爬取帖子的id可自定义 爬取正序倒序可自定义（order_type==1时为最早 ==2时为最新）
+post_id=56072212
+order_type=1
 
 def get_info(url):
     global floor
@@ -45,7 +49,10 @@ def get_info(url):
         pass
 #此网址可以自定义 具体为最热/最早/最晚评论 最终楼层自定义在上面的first_floor 具体帖子也可以自定义（该处为最热的4.8版本活动帖）size固定为1 受前面代码限制
 if __name__ == '__main__':
-    urls=['https://bbs-api.miyoushe.com/post/wapi/getPostReplies?gids=2&is_hot=false&last_id={}&order_type=2&post_id=55221094&size=1'.format(str(first_floor-i)) for i in range(1,n)]
+    if order_type == 2:
+        urls=['https://bbs-api.miyoushe.com/post/wapi/getPostReplies?gids=2&is_hot=false&last_id={}&order_type={}&post_id={}&size=1'.format(str(first_floor-i),str(order_type),str(post_id)) for i in range(1,n)]
+    else:
+        urls=['https://bbs-api.miyoushe.com/post/wapi/getPostReplies?gids=2&is_hot=false&last_id={}&order_type={}&post_id={}&size=1'.format(str(first_floor+i),str(order_type),str(post_id)) for i in range(1,n)]
     for url in urls:
         get_info(url)
     fp.close()
