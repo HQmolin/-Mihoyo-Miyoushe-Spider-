@@ -2,7 +2,7 @@
 
 该爬虫主要用于爬取米游社帖子下的评论 
 
-所需包为requests lxml time re csv
+所需包为requests re csv
 
 目前支持爬取楼层id 用户id 评论内容（floor_id uid comment）
 
