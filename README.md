@@ -22,6 +22,8 @@ post_id 爬取的帖子编号
 
 gids 对应的游戏社区
 
+(原神为2 崩坏星穹铁道为6 绝区零为8)
+
 ## 若打开mihoyo_comment.csv为乱码 
 
 可新建一个csv 
