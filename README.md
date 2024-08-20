@@ -16,4 +16,14 @@ first_floor 爬取起始楼层
 
 order_type/is_hot 正序/倒序/热门
 
+（order_type==1时为从最早评论开始，反之则为从最新评论开始）
+
 post_id 爬取的帖子编号
+
+## 若打开mihoyo_comment.csv为乱码 
+
+可新建一个csv 
+
+在数据栏目中导入mihoyo_comment.csv并保存 
+
+则能够正常使用
