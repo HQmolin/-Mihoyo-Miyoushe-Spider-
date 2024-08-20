@@ -30,9 +30,10 @@ n = 100
 first_floor = 1
 floor = first_floor - 1
 
-#爬取帖子的id可自定义 爬取正序倒序可自定义（order_type==1时为最早 ==2时为最新）
-post_id=56072212
+#爬取帖子的id可自定义 爬取正序倒序可自定义（order_type==1时为最早 ==2时为最新）不同游戏需要输入不同的gids
+post_id=56562881
 order_type=1
+gids = 8
 
 def get_info(url):
     global floor
@@ -50,9 +51,9 @@ def get_info(url):
 #此网址可以自定义 具体为最热/最早/最晚评论 最终楼层自定义在上面的first_floor 具体帖子也可以自定义（该处为最热的4.8版本活动帖）size固定为1 受前面代码限制
 if __name__ == '__main__':
     if order_type == 2:
-        urls=['https://bbs-api.miyoushe.com/post/wapi/getPostReplies?gids=2&is_hot=false&last_id={}&order_type={}&post_id={}&size=1'.format(str(first_floor-i),str(order_type),str(post_id)) for i in range(1,n)]
+        urls=['https://bbs-api.miyoushe.com/post/wapi/getPostReplies?gids={}&is_hot=false&last_id={}&order_type={}&post_id={}&size=1'.format(str(gids),str(first_floor-i),str(order_type),str(post_id)) for i in range(1,n)]
     else:
-        urls=['https://bbs-api.miyoushe.com/post/wapi/getPostReplies?gids=2&is_hot=false&last_id={}&order_type={}&post_id={}&size=1'.format(str(first_floor+i),str(order_type),str(post_id)) for i in range(1,n)]
+        urls=['https://bbs-api.miyoushe.com/post/wapi/getPostReplies?gids={}&is_hot=false&last_id={}&order_type={}&post_id={}&size=1'.format(str(gids),str(first_floor+i),str(order_type),str(post_id)) for i in range(1,n)]
     for url in urls:
         get_info(url)
     fp.close()
